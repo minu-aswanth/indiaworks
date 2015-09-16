@@ -14,12 +14,11 @@ exports.index = function(req, res) {
 // Creates a new subscription in the DB.
 exports.create = function(req, res) {
   req.body.createdOn = Date.now();
-  if(!Subscription.find({ email: req.body.email })){
-    Subscription.create(req.body, function(err, subscription) {
-      if(err) { console.log(err);return handleError(res, err); }
-      return res.json(201, subscription);
-    });
-  }
+  console.log(Subscription.find({ email: req.body.email }));
+  Subscription.create(req.body, function(err, subscription) {
+    if(err) { return handleError(res, err); }
+    return res.json(201, subscription);
+  });  
 };
 
 function handleError(res, err) {
