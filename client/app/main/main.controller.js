@@ -5,5 +5,5 @@ angular.module('indiaworksApp')
     $scope.addEmail = function(){
       $http.post('/api/subscriptions', { email: $scope.email });
       $scope.email = '';
-    }
+    };
   });
