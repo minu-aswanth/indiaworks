@@ -7,7 +7,7 @@ var Subscription = require('./subscription.model');
 exports.index = function(req, res) {
   Subscription.find(function (err, subscriptions) {
     if(err) { return handleError(res, err); }
-    return res.json(200, subscriptions);
+    return res.status(200).json(subscriptions);
   });
 };
 
@@ -15,12 +15,12 @@ exports.index = function(req, res) {
 exports.create = function(req, res) {
   req.body.createdOn = Date.now();
   console.log(Subscription.find({ email: req.body.email }));
-  Subscription.create(req.body, function(err, subscription) {
+  Subscription.create(req.body, function (err, subscription) {
     if(err) { return handleError(res, err); }
-    return res.json(201, subscription);
+    return res.status(201).json(subscription);
   });  
 };
 
 function handleError(res, err) {
-  return res.send(500, err);
+  return res.status(500).json(err);
 }
