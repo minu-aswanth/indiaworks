@@ -19,4 +19,12 @@ angular.module('indiaworksApp')
       //   controller: 'SettingsCtrl',
       //   authenticate: true
       // });
+
+    $stateProvider
+      .state('verifyEmail', {
+        url: '/verify/:token',
+        templateUrl: 'app/account/verifyEmail/verifyEmail.html',
+        controller: 'VerifyEmailCtrl'
+      });
+
   });
