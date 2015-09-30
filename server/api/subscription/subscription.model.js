@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var SubscriptionSchema = new Schema({
   email: String,
   createdOn: Date,
-  verified: { type: Boolean, default: false },
+  emailVerified: { type: Boolean, default: false },
   verificationToken: String,
   verificationTokenExpires: Date
 });

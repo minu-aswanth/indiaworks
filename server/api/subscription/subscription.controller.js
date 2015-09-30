@@ -14,7 +14,7 @@ var PASSWORD = ''; // Put your fest password here
 exports.index = function(req, res) {
   Subscription.find(function (err, subscriptions) {
     if(err) { return handleError(res, err); }
-    return res.status(200).json(subscriptions);
+    return res.json(200, subscriptions);
   });
 };
 
@@ -65,7 +65,7 @@ exports.create = function(req, res) {
                   console.log('info', info);
                   // return res.sendStatus(500);
                 } else {
-                  return res.status(201).json(subscription);
+                  return res.json(201, subscription);
                 }
               });      
             }
@@ -83,14 +83,23 @@ exports.create = function(req, res) {
 
 // Verify email
 exports.verify = function(req, res) {
-  // Subscription.find(function (err, subscriptions) {
-  //   if(err) { return handleError(res, err); }
-  //   return res.status(200).json(subscriptions);
-  // });
-  return res.status(200);
+  Subscription.findOne({ verificationToken: req.params.token }, function (err, subscription) {
+    if(err) { return handleError(res, err); }
+    if(subscription) {
+      subscription.verificationToken = '';
+      subscription.emailVerified = true;
+      subscription.save(function (err) {
+        if(err) { return handleError(res, err); }
+        else {
+          return res.json(200, 'Success');
+        }
+      });
+    } else {
+      return res.json(404, 'Fail');
+    }
+  });
 };
 
 function handleError(res, err) {
-  console.log(err);
-  return res.status(500).json(err);
+  return res.json(500, err);
 }
