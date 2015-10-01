@@ -58,13 +58,13 @@ var app=angular.module('indiaworksApp', [
     $scope.currentStep = ipCookie('myTour') || 1;
 
     $scope.AfterChangeEvent = function() {
-      console.log(this._currentStep + 1);
+      // console.log(this._currentStep + 1);
       $scope.currentStep = this._currentStep + 1;
       ipCookie('myTour', $scope.currentStep, { expires: 7 });
     };
 
     $scope.CompletedEvent = function() {
-      console.log(this._currentStep + 2);
+      // console.log(this._currentStep + 2);
       $scope.currentStep = this._currentStep + 2;
       ipCookie('myTour', $scope.currentStep, { expires: 7 });
     };
@@ -96,7 +96,7 @@ var app=angular.module('indiaworksApp', [
         ],
         showStepNumbers: false,
         exitOnOverlayClick: true,
-        exitOnEsc:true,
+        exitOnEsc: true,
         nextLabel: '<strong>NEXT!</strong>',
         prevLabel: '<span style="color:green">Previous</span>',
         skipLabel: 'Exit',
