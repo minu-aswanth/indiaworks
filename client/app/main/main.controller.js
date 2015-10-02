@@ -13,6 +13,7 @@ angular.module('indiaworksApp')
     };
 
     $scope.CompletedEvent = function() {
+      $scope.currentStep = this._currentStep + 2;
       ipCookie('myTour', $scope.currentStep, { expires: 7 });
     };
 
