@@ -5,9 +5,9 @@ var app = angular.module('indiaworksApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap',
-  'angular-intro',
-  'ipCookie'
+  'ui.bootstrap'
+  // 'angular-intro',
+  // 'ipCookie'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
