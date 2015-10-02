@@ -7,12 +7,12 @@ angular.module('indiaworksApp')
 
     $scope.AfterChangeEvent = function() {
       $scope.currentStep = this._currentStep + 1;
-      ipCookie('myTour', $scope.currentStep, { expires: 7 });
+      ipCookie('myTour', $scope.currentStep, { expires: 3000 });
     };
 
     $scope.CompletedEvent = function() {
       $scope.currentStep = this._currentStep + 2;
-      ipCookie('myTour', $scope.currentStep, { expires: 7 });
+      ipCookie('myTour', $scope.currentStep, { expires: 3000 });
     };
 
     if($scope.currentStep < 3){
