@@ -7,8 +7,8 @@ var nodemailer = require('nodemailer');
 var smtpapi    = require('smtpapi');
 var Subscription = require('./subscription.model');
 
-var EMAIL = ''; // Put your mail id here
-var PASSWORD = ''; // Put your password here 
+var EMAIL = 'noreply@indiaworks.org'; // Put your mail id here
+var PASSWORD = 'Noreply@iw'; // Put your password here 
 
 function validateEmail(email) {
   if(email === '') {
