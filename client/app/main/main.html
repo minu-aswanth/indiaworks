@@ -36,11 +36,11 @@
   <div class="row">
     <form name="form" class="form-inline" novalidate>
       <div class="form-group">
-        <input ng-model="email" type="email" name="email" class="form-control" id="inputField" placeholder="Enter your email address">
+        <input ng-model="email" type="email" name="email" class="form-control" id="inputField" required placeholder="Enter your email address">
       </div>
       <button id="notifyButton" ng-click="addEmail(form)" class="btn btn-default">Notify Me!</button>
     </form>
-    <span class="help-block" ng-show="form.email.$error.email && submitted">
+    <span class="help-block font-vollkorn" ng-show="(form.email.$error.required || form.email.$error.email) && submitted">
       Doesn't look like a valid email.
     </span>
   </div>

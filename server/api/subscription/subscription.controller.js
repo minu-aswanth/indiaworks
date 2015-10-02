@@ -11,8 +11,12 @@ var EMAIL = ''; // Put your mail id here
 var PASSWORD = ''; // Put your password here 
 
 function validateEmail(email) {
-  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  return re.test(email);
+  if(email === '') {
+    return false;
+  } else {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+  }
 }
 
 // Get list of subscriptions
@@ -27,7 +31,7 @@ exports.index = function(req, res) {
 exports.create = function(req, res) {
   req.body.createdOn = Date.now();
 
-  if(validateEmail(req.body.email) != false) {
+  if(validateEmail(req.body.email)) {
     console.log(req.body);
     Subscription.findOne({ email: req.body.email }, function (err, exist) {
       if(err) { return handleError(res, err); }
@@ -88,8 +92,6 @@ exports.create = function(req, res) {
       }
     });
   } else {
-    console.log(validateEmail(req.body.email));
-    console.log(req.body);
     return res.json(400, 'Bad request');
   }
 };
