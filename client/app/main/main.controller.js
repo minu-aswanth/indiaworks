@@ -81,12 +81,16 @@ angular.module('indiaworksApp')
 	    			$scope.email = '';
 	  				$scope.message = "Thank you for subscribing !";
 		    	});
-  			$timeout(removeMessage, 5000);
+  			$timeout(changeMessage, 5000);
 	  	}
     };
 
-  	function removeMessage() {
-  		$scope.message = '';
+  	function changeMessage() {
+  		$scope.message = 'Please check your inbox and verify your email';
+      $timeout(removeMessage, 10000);
   	}
+    function removeMessage() {
+      $scope.message = '';
+    }
 
   });
