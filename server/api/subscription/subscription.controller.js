@@ -71,7 +71,7 @@ exports.create = function(req, res) {
                   if(err) {
                     console.log('err', err);
                     console.log('info', info);
-                    return res.status(500);
+                    return res.json(500, err);
                   } else {
                     return res.json(201, subscription);
                   }
@@ -84,11 +84,13 @@ exports.create = function(req, res) {
           }
         });  
       } else {
-        return res.status(201);
+        return res.json(201, subscription);
       }
     });
   } else {
-    return res.status(400);
+    console.log(validateEmail(req.body.email));
+    console.log(req.body);
+    return res.json(400, 'Bad request');
   }
 };
 

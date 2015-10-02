@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('indiaworksApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $timeout) {
   	$scope.submitted = false;
   	$scope.email = '';
 		$scope.message = "";
@@ -10,13 +10,22 @@ angular.module('indiaworksApp')
 	  	if(form.$valid) {
 				$scope.message = "Working...";
 		    $http.post('/api/subscriptions', { email: $scope.email })
-		    	.then(function (response) {
-		    		if(response.status === 201) {
-		    			$scope.email = '';
-		  			} else {
-		  				$scope.message = "Thank you for subscribing !";
-		  			}
+		    	.success(function (response) {
+	  				$scope.submitted = false;
+	    			$scope.email = '';
+	  				$scope.message = "Thank you for subscribing !";
+		    	})
+		    	.error(function (err) {
+	  				$scope.submitted = false;
+	    			$scope.email = '';
+	  				$scope.message = "Thank you for subscribing !";
 		    	});
+  			$timeout(removeMessage, 5000);
 	  	}
     };
+
+  	function removeMessage() {
+  		$scope.message = '';
+  	}
+
   });
