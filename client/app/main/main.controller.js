@@ -44,6 +44,12 @@ angular.module('indiaworksApp')
             element: '#youtube',
             intro: 'Subscribe to our youtube channel',
             position: 'top'
+        },
+        {
+            step : 5,
+            element: '#queries',
+            intro: 'Got any queries? Please contact us here',
+            position: 'down'
         }
       ],
       showStepNumbers: false,
