@@ -3,8 +3,6 @@
 angular.module('indiaworksApp')
   .controller('MainCtrl', function ($scope, $http, $timeout, ipCookie) {
 
-    console.log($(window).width());
-
     $scope.currentStep = ipCookie('myTour') || 1;
 
     $scope.AfterChangeEvent = function() {
