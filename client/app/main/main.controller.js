@@ -3,6 +3,8 @@
 angular.module('indiaworksApp')
   .controller('MainCtrl', function ($scope, $http, $timeout, ipCookie) {
 
+    console.log($(window).width());
+
     $scope.currentStep = ipCookie('myTour') || 1;
 
     $scope.AfterChangeEvent = function() {
@@ -22,7 +24,7 @@ angular.module('indiaworksApp')
     }
 
     $scope.IntroOptions = {
-        steps:[
+      steps:[
         {
             step : 1,
             element: document.querySelector('#headerIcon'),
@@ -47,14 +49,14 @@ angular.module('indiaworksApp')
             intro: 'Subscribe to our youtube channel',
             position: 'top'
         }
-        ],
-        showStepNumbers: false,
-        exitOnOverlayClick: true,
-        exitOnEsc: true,
-        nextLabel: '<strong>NEXT!</strong>',
-        prevLabel: '<span style="color:green">Previous</span>',
-        skipLabel: 'Stop Tour',
-        doneLabel: 'Okay'
+      ],
+      showStepNumbers: false,
+      exitOnOverlayClick: true,
+      exitOnEsc: true,
+      nextLabel: '<strong>NEXT!</strong>',
+      prevLabel: '<span style="color:green">Previous</span>',
+      skipLabel: 'Stop Tour',
+      doneLabel: 'Okay'
     };
 
     $scope.ShouldAutoStart = false;
