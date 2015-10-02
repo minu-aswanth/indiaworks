@@ -8,14 +8,11 @@ angular.module('indiaworksApp')
     $scope.currentStep = ipCookie('myTour') || 1;
 
     $scope.AfterChangeEvent = function() {
-      // console.log(this._currentStep + 1);
       $scope.currentStep = this._currentStep + 1;
       ipCookie('myTour', $scope.currentStep, { expires: 7 });
     };
 
     $scope.CompletedEvent = function() {
-      // console.log(this._currentStep + 2);
-      $scope.currentStep = this._currentStep + 2;
       ipCookie('myTour', $scope.currentStep, { expires: 7 });
     };
 
