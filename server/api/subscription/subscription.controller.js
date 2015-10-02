@@ -79,12 +79,12 @@ exports.create = function(req, res) {
               }
               ], function (err) {
                 if(err) { return next(err); }
-                res.redirect('/');
+                return res.json(500, err);
               });
           }
         });  
       } else {
-        return res.json(201, subscription);
+        return res.json(201, 'Already exists');
       }
     });
   } else {

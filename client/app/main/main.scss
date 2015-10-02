@@ -486,3 +486,9 @@
       opacity: 1;
   }
 }
+
+@media all and (max-width: 767px) {
+  #queries {
+    font-size: 1em;
+  }
+}

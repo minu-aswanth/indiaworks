@@ -1,6 +1,10 @@
+<div ng-intro-options="IntroOptions" ng-intro-method="CallMe" 
+      ng-intro-onafterchange="AfterChangeEvent"
+      ng-intro-oncomplete="CompletedEvent"
+      ng-intro-autostart="ShouldAutoStart">
 <div class="container-fluid" id="header">
   <div class="row">
-    <div class="col-xs-10 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-9 col-xs-offset-1 col-sm-4 col-sm-offset-4">
       <img class="img-responsive" id="headerIcon" src="../../assets/images/IWlogo.svg">
     </div>
     <div class="col-xs-2 col-sm-2 col-sm-offset-2">
@@ -10,11 +14,7 @@
 </div>
 <div class="container-fluid makeCenter">
 <!-- <div class="container-fluid makeCenter" ng-controller="MyController"> -->
-<!--   <div ng-intro-options="IntroOptions" ng-intro-method="CallMe" 
-        ng-intro-onafterchange="AfterChangeEvent"
-        ng-intro-oncomplete="CompletedEvent"
-        ng-intro-autostart="ShouldAutoStart">
- -->  <div class="row">
+  <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
       <h2 id="firstLine">"Get your work done by</h2>
     </div>
@@ -37,7 +37,7 @@
   <div class="row">
     <form name="form" class="form-inline" novalidate>
       <div class="form-group">
-        <input ng-model="email" type="email" name="email" class="form-control col-md-10" id="inputField" placeholder="Enter your email address">
+        <input ng-model="email" type="email" name="email" class="form-control" id="inputField" placeholder="Enter your email address">
       </div>
       <button id="notifyButton" ng-click="addEmail(form)" class="btn btn-default">Notify Me!</button>
     </form>
@@ -45,7 +45,7 @@
       Doesn't look like a valid email.
     </span>
   </div>
-  {{message}}
+  <span id="message">{{message}}</span>
   <div class="row makeCenter">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
       <a target="_blank" href="https://www.facebook.com/indiaworks111">
@@ -65,7 +65,7 @@
     </div>
   </div>
 </div>
-<!-- </div> -->
+</div>
 <div id="footer">
   <p id="copyright">&copy; Copyright 2015</p>
 </div>
