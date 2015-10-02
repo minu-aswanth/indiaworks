@@ -15,6 +15,10 @@
     src: local(myriadItalic), url('../../assets/fonts/MyriadPro-SemiboldSemiExtIt.otf') format('opentype');
 }
 
+#message {
+  font-family: 'vollkorn';
+}
+
 .makeCenter {
   text-align: center;
 }
