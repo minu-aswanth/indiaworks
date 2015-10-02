@@ -5,13 +5,12 @@ angular.module('indiaworksApp')
     $scope.message = 'Working...';
 
     $http.post('/api/subscriptions/verify/' + $stateParams.token)
-      .then(function (response) {
-        if(response.status === 200) {
-          $scope.message = 'Email successfully verified!';
-          $timeout(redirectToHome, 5000);
-        } else {
-          $scope.message = 'Some error occurred. Please reload!';
-        }
+      .success(function (response) {
+        $scope.message = 'Email successfully verified!';
+        $timeout(redirectToHome, 5000);
+      })
+      .error(function (response) {
+        $scope.message = 'Some error occurred. Please reload!';
       });
 
       function redirectToHome() {
