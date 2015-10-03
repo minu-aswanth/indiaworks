@@ -32,17 +32,22 @@
 }
 
 .noUnderline {
+  color: #B30707;
   text-decoration: none;
   &:hover {
+    color: #B30707;
     text-decoration: none;
   }
   &:visited {
+    color: #B30707;
     text-decoration: none;
   }
   &:link {
+    color: #B30707;
     text-decoration: none;
   }
   &:active {
+    color: #B30707;
     text-decoration: none;
   }
 }
@@ -88,7 +93,7 @@
   cursor: pointer;
 }
 
-#blog {
+.blog {
   color: #000;
   opacity: 0.5;
   font-family: 'futura';
@@ -96,7 +101,6 @@
   font-size: 1.5em;
   // margin-top: 10%;
   font-weight: 600;
-  cursor: pointer;
 }
 
 #firstLine {
